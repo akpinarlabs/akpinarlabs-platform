@@ -16,15 +16,11 @@ This document describes the complete network architecture of the AkpinarLabs Pla
 
 # Internet
 
-Fiber Internet
+Fiber Internet Connection
 
-1 Gbps Download
+Static Public IP Address
 
-100 Mbps Upload
-
-Static Public IP
-
-213.153.252.54
+(Private)
 
 ---
 
