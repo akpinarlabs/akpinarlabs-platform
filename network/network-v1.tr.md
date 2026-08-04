@@ -10,159 +10,111 @@ Tarih: 2026
 
 # Amaç
 
-Bu belge AkpinarLabs Platformu'nun ağ mimarisini tanımlar.
+Bu belge, AkpinarLabs Platformu'nun genel ağ mimarisini tanımlar.
+
+Güvenlik nedeniyle iç IP adresleri, firewall kuralları, DNS kayıtları ve altyapı detayları bu herkese açık dokümantasyonda paylaşılmamaktadır.
 
 ---
 
 # İnternet
 
-Fiber İnternet
+Fiber İnternet Bağlantısı
 
-1 Gbps İndirme
+Statik Genel IP
 
-100 Mbps Yükleme
-
-Statik IP
-
-213.153.252.54
+(Gizli)
 
 ---
 
-# Ağ Akışı
+# Üst Düzey Ağ Mimarisi
 
 İnternet
 
 ↓
 
-Zyxel EX3501-T0
+Cloudflare
 
 ↓
 
-FortiGate 30D
+Firewall
 
 ↓
 
-Yerel Ağ
+Özel Ağ
 
 ↓
 
-HP ML350 G6
-
-↓
-
-Proxmox VE
-
-↓
-
-Sanal Makineler
-
-↓
-
-Konteynerler
+Sanallaştırma Platformu
 
 ↓
 
 Uygulamalar
 
----
+↓
 
-# WAN
-
-Statik Genel IP
-
-213.153.252.54
+Kullanıcılar
 
 ---
 
-# LAN
+# Ağ Katmanları
 
-Ağ
+## Kenar Katmanı
 
-192.168.1.0/24
+- Fiber İnternet
+- Cloudflare
+- Kurumsal Firewall
 
-Gateway
+## Çekirdek Katmanı
 
-192.168.1.99
+- Özel Yerel Ağ
+- Sanallaştırma Platformu
 
----
+## Platform Katmanı
 
-# Temel Bileşenler
-
-Firewall
-
-FortiGate 30D
-
-Reverse Proxy
-
-Nginx Proxy Manager
-
-DNS
-
-Cloudflare
-
-Sanallaştırma
-
-Proxmox VE
-
-Kablosuz Ağ
-
-UniFi Access Point
+- Reverse Proxy
+- Uygulama Servisleri
+- Yapay Zekâ Servisleri
+- Geliştirme Ortamı
 
 ---
 
-# Aktif Servisler
+# Altyapı Bileşenleri
 
-Nginx Proxy Manager
-
-192.168.1.88
-
-Pangolin
-
-192.168.1.113
-
-Cyber-W
-
-192.168.1.150
-
-UniFi AP
-
-192.168.1.115
-
-Gateway
-
-192.168.1.99
+- Kurumsal Firewall
+- Reverse Proxy
+- Sanallaştırma Platformu
+- Kablosuz Ağ
+- Geliştirme Bilgisayarları
 
 ---
 
 # Ağ Tasarım İlkeleri
 
-- Önce Güvenlik
-- En Az Yetki
-- Self Hosted
+- Güvenlik Önceliklidir
+- En Az Yetki Prensibi
 - Zero Trust Uyumlu
-- Cloud Entegrasyonu
-- Kolay Yönetim
+- Self Hosted
+- Bulut Entegrasyonu
+- Yüksek Erişilebilirlik Hazır
 - Tam Dokümantasyon
 
 ---
 
 # Gelecek
 
-Docker Ağı
+- VLAN Yapısı
+- WireGuard VPN
+- Internal DNS
+- Service Discovery
+- Monitoring
+- Load Balancing
+- Çok Düğümlü Altyapı
 
-Internal DNS
+---
 
-WireGuard
+# Güvenlik Notu
 
-VLAN
-
-Monitoring
-
-Service Discovery
-
-Load Balancing
-
-High Availability
+Güvenlik nedeniyle iç IP adresleri, firewall kuralları, DNS kayıtları ve altyapı detayları herkese açık olan bu dokümanda paylaşılmamaktadır.
 
 ---
 
