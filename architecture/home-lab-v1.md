@@ -10,58 +10,33 @@ Date: 2026
 
 # Purpose
 
-This document describes the physical and logical architecture of the AkpinarLabs HomeLab.
+This document describes the high-level architecture of the AkpinarLabs HomeLab.
 
-The HomeLab serves as the primary development, testing and production environment for all AkpinarLabs services.
-
-Future cloud infrastructure, AI services, mobile backends and educational platforms will be built on top of this environment.
+Detailed infrastructure information is maintained in private repositories.
 
 ---
 
-# Objectives
+# Mission
 
-The HomeLab is designed to provide:
-
-- Self-hosted infrastructure
-- Cloud-native platform
-- AI-ready architecture
-- High availability (future)
-- Secure networking
-- Automated deployments
-- Learning environment
-- Production services
+The HomeLab provides the engineering environment where all AkpinarLabs products are designed, developed, tested and deployed.
 
 ---
 
-# Physical Architecture
+# Architecture
 
 Internet
 
 ↓
 
-1 Gbps Fiber Connection
+Enterprise Firewall
 
 ↓
 
-Static Public IP
-
-213.153.252.54
+Private Network
 
 ↓
 
-Zyxel EX3501-T0
-
-↓
-
-FortiGate 30D
-
-↓
-
-HP ProLiant ML350 G6
-
-↓
-
-Proxmox VE
+Virtualization Platform
 
 ↓
 
@@ -77,121 +52,44 @@ Applications
 
 ---
 
-# Hardware
+# Platform Goals
 
-## Server
-
-HP ProLiant ML350 G6
-
----
-
-## CPU
-
-Intel Xeon E5620
-
----
-
-## Memory
-
-48 GB RAM
-
-(Upgradeable)
+- Self Hosted Infrastructure
+- Cloud Native Architecture
+- AI Ready
+- Robotics Ready
+- Secure by Design
+- Scalable Infrastructure
+- Centralized Services
+- Education Platform
 
 ---
 
-## Storage
+# Core Components
 
-240 GB SSD (System)
-
-1 TB HDD
-
-1 TB HDD
-
-1 TB HDD
-
-Future:
-
-+240 GB SSD
-
-+240 GB SSD
+- Enterprise Firewall
+- Virtualization Platform
+- Reverse Proxy
+- Development Environment
+- AI Environment
+- Application Platform
 
 ---
 
-# Hypervisor
+# Principles
 
-Proxmox VE
-
-Version 8
-
----
-
-# Network
-
-LAN
-
-192.168.1.0/24
-
-Gateway
-
-FortiGate
-
-192.168.1.99
+- Open Source First
+- Documentation First
+- Security by Design
+- Scalability
+- Simplicity
+- Continuous Improvement
 
 ---
 
-# Current Services
+# Security Notice
 
-Nginx Proxy Manager
-
-Pangolin
-
-Development VMs
-
-Educational Labs
-
-Cyber Security Labs
-
----
-
-# Future Services
-
-Docker
-
-Coolify
-
-PostgreSQL
-
-Redis
-
-MinIO
-
-Git Server
-
-CI/CD
-
-AI Platform
-
-LLM
-
-Object Storage
-
-Monitoring
-
-Logging
-
-Backup
-
-Identity Management
-
----
-
-# Long-term Vision
-
-The HomeLab is not only a server.
-
-It is the engineering foundation of the entire AkpinarLabs Platform.
-
-Every application, every API, every AI service and every educational product will first be developed and tested here.
+Infrastructure topology, IP addressing, DNS records and security configurations are intentionally omitted from this public document.
 
 ---
 
