@@ -1,223 +1,98 @@
-# 🏠 HomeLab Mimarisi v1
+# HomeLab Mimarisi v1
 
-**Sürüm:** 1.0
+Sürüm: 1.0
 
-**Durum:** Aktif
+Durum: Aktif
 
-**Tarih:** 2026
+Tarih: 2026
 
 ---
 
 # Amaç
 
-Bu belge, AkpinarLabs HomeLab altyapısının fiziksel ve mantıksal mimarisini tanımlar.
+Bu belge AkpinarLabs HomeLab altyapısının genel mimarisini tanımlar.
 
-HomeLab; AkpinarLabs bünyesinde geliştirilecek tüm yazılım, yapay zekâ, robotik, mobil uygulama ve bulut servislerinin geliştirme, test ve üretim ortamı olarak kullanılacaktır.
-
-Bu altyapı yalnızca bir ev sunucusu değildir.
-
-AkpinarLabs Platformu'nun temel mühendislik altyapısını oluşturur.
+Detaylı altyapı bilgileri güvenlik nedeniyle özel depolarda tutulmaktadır.
 
 ---
 
-# Hedefler
+# Misyon
 
-HomeLab aşağıdaki hedefler doğrultusunda tasarlanmıştır.
-
-- Kendi kendine yetebilen (Self-Hosted) altyapı
-- Bulut tabanlı mimari
-- Yapay zekâ çalıştırmaya hazır platform
-- Güvenli ağ yapısı
-- Kolay yönetilebilir sanallaştırma
-- Merkezi servis yönetimi
-- Eğitim ve Ar-Ge ortamı
-- Üretim servisleri
-- Gelecekte yüksek erişilebilirlik desteği
+HomeLab, AkpinarLabs bünyesinde geliştirilecek tüm ürünlerin tasarlanacağı, geliştirileceği, test edileceği ve yayınlanacağı mühendislik ortamıdır.
 
 ---
 
-# Fiziksel Mimari
+# Mimari
 
-```
 İnternet
-        │
-        ▼
-1 Gbps Fiber İnternet
-        │
-        ▼
-Statik IP Adresi
-213.153.252.54
-        │
-        ▼
-Zyxel EX3501-T0 Modem
-        │
-        ▼
-FortiGate 30D
-        │
-        ▼
-HP ProLiant ML350 G6
-        │
-        ▼
-Proxmox VE
-        │
-        ▼
+
+↓
+
+Kurumsal Firewall
+
+↓
+
+Özel Ağ
+
+↓
+
+Sanallaştırma Platformu
+
+↓
+
 Sanal Makineler
-        │
-        ▼
-Docker / Uygulamalar
-```
+
+↓
+
+Konteynerler
+
+↓
+
+Uygulamalar
 
 ---
 
-# Donanım
+# Platform Hedefleri
 
-## Sunucu
-
-HP ProLiant ML350 G6
-
----
-
-## İşlemci
-
-Intel Xeon E5620
-
----
-
-## Bellek
-
-48 GB RAM
-
-İleride yükseltilecektir.
+- Self Hosted Altyapı
+- Cloud Native Mimari
+- Yapay Zekâ Hazır
+- Robotik Hazır
+- Güvenlik Öncelikli
+- Ölçeklenebilir Altyapı
+- Merkezi Servis Yönetimi
+- Eğitim Platformu
 
 ---
 
-## Depolama
+# Temel Bileşenler
 
-Mevcut:
-
-- 240 GB SSD (Sistem Diski)
-- 1 TB HDD
-- 1 TB HDD
-- 1 TB HDD
-
-Planlanan:
-
-- +240 GB SSD
-- +240 GB SSD
-
----
-
-# Sanallaştırma Platformu
-
-Hypervisor olarak **Proxmox VE** kullanılmaktadır.
-
-Platform üzerinde;
-
-- KVM Sanal Makineler
-- LXC Konteynerler
-
-çalıştırılacaktır.
-
----
-
-# Ağ Yapısı
-
-Yerel Ağ
-
-192.168.1.0/24
-
-Gateway
-
-FortiGate 30D
-
-192.168.1.99
-
----
-
-# Aktif Servisler
-
-Şu anda çalışan servisler:
-
-- Nginx Proxy Manager
-- Pangolin
-- Eğitim Laboratuvarları
-- Siber Güvenlik Laboratuvarları
-- Geliştirme Ortamları
-
----
-
-# Gelecekte Eklenecek Servisler
-
-- Docker
-- Coolify
-- PostgreSQL
-- Redis
-- MinIO
-- Git Sunucusu
-- CI/CD
-- AI Platformu
-- Ollama
-- Object Storage
-- Monitoring
-- Merkezi Log Yönetimi
-- Kimlik Yönetimi
-- Yedekleme Sunucusu
-
----
-
-# Uzun Vadeli Vizyon
-
-HomeLab yalnızca kişisel bir sunucu değildir.
-
-AkpinarLabs Platformu'nun tamamı bu altyapı üzerinde geliştirilecek, test edilecek ve yayınlanacaktır.
-
-Her mobil uygulama,
-
-her web servisi,
-
-her API,
-
-her yapay zekâ modeli,
-
-her robotik proje,
-
-önce bu HomeLab üzerinde doğacaktır.
+- Kurumsal Firewall
+- Sanallaştırma Platformu
+- Reverse Proxy
+- Geliştirme Ortamı
+- Yapay Zekâ Ortamı
+- Uygulama Platformu
 
 ---
 
 # Tasarım İlkeleri
 
-Bu altyapı aşağıdaki prensiplere göre geliştirilmektedir.
-
 - Açık Kaynak Önceliklidir
-- Dokümantasyon Önce Gelir
-- Güvenlik Tasarımın Bir Parçasıdır
+- Önce Dokümantasyon
+- Güvenlik Tasarımın Parçasıdır
 - Ölçeklenebilirlik
-- Tekrar Üretilebilirlik
-- Basitlik
+- Sadelik
 - Sürekli Gelişim
 
 ---
 
-# Sonraki Aşamalar
+# Güvenlik Notu
 
-Bu belge ilerleyen sürümlerde aşağıdaki bölümlerle genişletilecektir.
-
-- Ağ Topolojisi
-- VLAN Yapısı
-- Firewall Kuralları
-- Sanal Makine Mimarisi
-- Docker Mimarisi
-- Yapay Zekâ Katmanı
-- Depolama Mimarisi
-- İzleme Sistemi
-- Yedekleme Stratejisi
-- Felaket Kurtarma Planı
+Altyapı topolojisi, IP adresleri, DNS kayıtları ve güvenlik yapılandırmaları bu herkese açık dokümanda paylaşılmamaktadır.
 
 ---
 
-**Chief Builder**
+Chief Builder
 
 Ferhat Akpınar
-
-AkpinarLabs
