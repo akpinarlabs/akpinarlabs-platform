@@ -10,7 +10,9 @@ Date: 2026
 
 # Purpose
 
-This document describes the complete network architecture of the AkpinarLabs Platform.
+This document describes the high-level network architecture of the AkpinarLabs Platform.
+
+Sensitive infrastructure information such as IP addresses, firewall rules and internal services are intentionally omitted from the public documentation.
 
 ---
 
@@ -24,141 +26,95 @@ Static Public IP Address
 
 ---
 
-# Edge Network
+# High-Level Network Architecture
 
-ISP
-
-↓
-
-Zyxel EX3501-T0
+Internet
 
 ↓
 
-FortiGate 30D
+Cloudflare
 
 ↓
 
-Local Network
+Firewall
 
 ↓
 
-HP ML350 G6
+Private Network
 
 ↓
 
-Proxmox VE
-
-↓
-
-Virtual Machines
-
-↓
-
-Containers
+Virtualization Platform
 
 ↓
 
 Applications
 
----
+↓
 
-# WAN
-
-Public Static IP
-
-213.153.252.54
+Users
 
 ---
 
-# LAN
+# Network Layers
 
-Network
+## Edge
 
-192.168.1.0/24
+- Fiber Internet
+- Cloudflare
+- Enterprise Firewall
 
-Gateway
+## Core
 
-192.168.1.99
+- Private LAN
+- Virtualization Platform
 
----
+## Platform
 
-# Core Components
-
-Firewall
-
-FortiGate 30D
-
-Reverse Proxy
-
-Nginx Proxy Manager
-
-Cloud DNS
-
-Cloudflare
-
-Hypervisor
-
-Proxmox VE
-
-Wireless
-
-UniFi Access Point
+- Reverse Proxy
+- Application Services
+- AI Services
+- Development Environment
 
 ---
 
-# Current Services
+# Infrastructure Components
 
-Nginx Proxy Manager
-
-192.168.1.88
-
-Pangolin
-
-192.168.1.113
-
-Cyber-W Workstation
-
-192.168.1.150
-
-UniFi AP
-
-192.168.1.115
-
-Gateway
-
-192.168.1.99
+- Enterprise Firewall
+- Reverse Proxy
+- Virtualization Platform
+- Wireless Network
+- Development Workstations
 
 ---
 
 # Network Principles
 
-- Security First
+- Security by Design
 - Least Privilege
-- Self Hosted
 - Zero Trust Ready
+- Self Hosted
 - Cloud Integrated
-- Easy Maintenance
+- High Availability Ready
 - Fully Documented
 
 ---
 
 # Future
 
-Docker Network
+- VLAN Segmentation
+- WireGuard VPN
+- Internal DNS
+- Service Discovery
+- Monitoring
+- Load Balancing
+- Multi-Node Infrastructure
 
-Internal DNS
+---
 
-WireGuard
+# Security Notice
 
-VLAN Segmentation
-
-Monitoring
-
-Service Discovery
-
-Load Balancing
-
-High Availability
+For security reasons, internal IP addresses, firewall rules, DNS records and infrastructure details are intentionally omitted from this public documentation.
 
 ---
 
